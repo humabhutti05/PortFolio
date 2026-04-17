@@ -69,8 +69,7 @@ function Particles({ count = 100 }) {
         <bufferAttribute 
           attach="attributes-position" 
           count={points.length / 3} 
-          array={points} 
-          itemSize={3} 
+          args={[points, 3]} 
         />
       </bufferGeometry>
       <pointsMaterial size={0.02} color="#ffffff" transparent opacity={0.3} sizeAttenuation={true} />
@@ -88,8 +87,8 @@ export default function ThreeDElement() {
         
         <PresentationControls
           global
-          config={{ mass: 2, tension: 500 }}
-          snap={{ mass: 4, tension: 1500 }}
+          speed={2}
+          snap={true}
           rotation={[0, 0.3, 0]}
           polar={[-Math.PI / 3, Math.PI / 3]}
           azimuth={[-Math.PI / 1.4, Math.PI / 1.4]}
